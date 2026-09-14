@@ -43,7 +43,7 @@
         <img
           src="/logo.png"
           alt="Précis Logo"
-          class="size-7 rounded-xl border border-[#e0e0e0] object-cover"
+          class="size-9 rounded-xl object-contain sm:size-10"
         />
         <span
           class={`font-display font-bold tracking-tight text-[#161616] transition-all duration-500 group-hover:text-[#0f62fe] ${

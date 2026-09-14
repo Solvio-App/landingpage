@@ -54,7 +54,12 @@
       <div class="relative z-10 grid grid-cols-2 gap-12 md:grid-cols-6 lg:gap-8">
         <!-- Brand Column -->
         <div class="col-span-2">
-          <a href="/" class="mb-6 inline-flex items-baseline gap-2">
+          <a href="/" class="mb-6 inline-flex items-center gap-2.5">
+            <img
+              src="/logo.png"
+              alt="Précis Logo"
+              class="size-9 rounded-xl object-contain"
+            />
             <span class="font-display text-2xl font-bold text-[#161616]">Précis</span>
           </a>
 

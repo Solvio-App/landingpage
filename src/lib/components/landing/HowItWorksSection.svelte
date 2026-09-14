@@ -70,7 +70,7 @@
   class="relative overflow-hidden bg-[#161616] py-16 text-white sm:py-24 lg:py-32"
 >
   <!-- Diagonal lines pattern -->
-  <div class="opacity-0.03 pointer-events-none absolute inset-0">
+  <div class="pointer-events-none absolute inset-0 opacity-[0.03]" style="opacity: 0.03;">
     <div
       class="absolute inset-0"
       style="background-image: repeating-linear-gradient(-45deg, transparent, transparent 40px, currentColor 40px, currentColor 41px);"
