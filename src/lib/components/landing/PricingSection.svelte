@@ -7,7 +7,7 @@
     {
       name: 'Single Outlet',
       description: 'Untuk toko mandiri atau bisnis 1 lokasi',
-      price: { monthly: '99.000', annual: '79.000' },
+      price: { monthly: '99.000', annual: '82.500', annualBilled: '990.000' },
       features: [
         '1 Kuota Outlet / Cabang',
         'Kasir POS Offline-Ready',
@@ -16,37 +16,37 @@
         'Rekonsiliasi Kas Harian',
         'Arsip Foto Selfie 60 Hari',
       ],
-      cta: 'Coba Gratis 1 Bulan',
+      cta: 'Coba Gratis 35 Hari',
       popular: false,
     },
     {
       name: 'Growth Multi-Outlet',
-      description: 'Untuk bisnis bertumbuh 2 - 3 cabang',
-      price: { monthly: '249.000', annual: '199.000' },
+      description: 'Untuk bisnis bertumbuh hingga 5 cabang',
+      price: { monthly: '299.000', annual: '249.000', annualBilled: '2.990.000' },
       features: [
-        'Hingga 3 Kuota Outlet / Cabang',
+        'Hingga 5 Kuota Outlet / Cabang',
         'Semua Fitur Single Outlet',
         'Hak Akses Kepala Toko (Store Manager)',
         'Modul Pinjaman Kasbon & Auto-Potong',
         'Cetak Struk Thermal Bluetooth',
         'Ekspor Slip Gaji Siap Transfer Bank',
       ],
-      cta: 'Paling Diminati - Coba Gratis',
+      cta: 'Paling Diminati - Coba Gratis 35 Hari',
       popular: true,
     },
     {
       name: 'Scale Enterprise',
-      description: 'Untuk jaringan bisnis 4 - 10 cabang operasional',
-      price: { monthly: '499.000', annual: '399.000' },
+      description: 'Untuk jaringan bisnis berkembang hingga 20 cabang',
+      price: { monthly: '799.000', annual: '665.000', annualBilled: '7.990.000' },
       features: [
-        'Hingga 10 Kuota Outlet / Cabang',
+        'Hingga 20 Kuota Outlet / Cabang',
         'Semua Fitur Growth Multi-Outlet',
         'Staf Karyawan & Kasir Tanpa Batas',
         'Laporan Finansial Konsolidasi',
         'Geofence Radius Kustom per Cabang',
         'Prioritas Dukungan Teknis 24/7',
       ],
-      cta: 'Mulai Paket Scale',
+      cta: 'Mulai Paket Enterprise',
       popular: false,
     },
   ];
@@ -65,8 +65,8 @@
         <span class="text-stroke">transparan</span>
       </h2>
       <p class="max-w-xl text-lg text-[#525252]">
-        Mulai dengan uji coba gratis 1 bulan penuh. Tambah kuota outlet kapan saja tanpa kontrak
-        rumit.
+        Mulai dengan uji coba gratis 35 hari (termasuk 5 hari setup toko &amp; 2 workspace). Tambah
+        kuota outlet kapan saja tanpa kontrak rumit.
       </p>
     </div>
 
@@ -100,7 +100,7 @@
       </span>
       {#if isAnnual}
         <span class="ml-2 rounded bg-[#24a148] px-2 py-1 font-mono text-xs text-white">
-          Hemat 20%
+          Hemat 2 Bulan (Bayar 10 Bulan)
         </span>
       {/if}
     </div>
@@ -142,6 +142,11 @@
                 </span>
                 <span class="font-mono text-sm text-[#525252]">/bln</span>
               </div>
+              {#if isAnnual}
+                <span class="mt-1 block font-mono text-xs text-[#8c8c8c]">
+                  Ditagih Rp {plan.price.annualBilled}/tahun
+                </span>
+              {/if}
             </div>
 
             <!-- Features -->

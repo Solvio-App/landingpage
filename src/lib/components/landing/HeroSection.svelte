@@ -105,7 +105,7 @@
           href="https://app.precis.com/register"
           class="group inline-flex h-14 items-center justify-center rounded-full bg-[#0f62fe] px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-[#0050e6]"
         >
-          Mulai Uji Coba 1 Bulan
+          Mulai Uji Coba 35 Hari
           <ArrowRight class="ml-2 size-4 transition-transform group-hover:translate-x-1" />
         </a>
         <a

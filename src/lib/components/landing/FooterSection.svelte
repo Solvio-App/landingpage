@@ -17,7 +17,7 @@
       {
         name: 'Daftar Akun Baru',
         href: 'https://app.precis.com/register',
-        badge: '1 Bulan Gratis',
+        badge: '35 Hari Gratis',
       },
     ],
     Perusahaan: [

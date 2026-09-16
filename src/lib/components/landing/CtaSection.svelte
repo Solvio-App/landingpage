@@ -61,7 +61,7 @@
             </h2>
 
             <p class="mb-12 max-w-xl text-xl leading-relaxed text-[#525252]">
-              Tinggalkan cara lama yang rentan kecurangan. Coba gratis 1 bulan penuh tanpa komitmen
+              Tinggalkan cara lama yang rentan kecurangan. Coba gratis 35 hari penuh tanpa komitmen
               kartu kredit.
             </p>
 
@@ -70,7 +70,7 @@
                 href="https://app.precis.com/register"
                 class="group inline-flex h-14 items-center justify-center rounded-full bg-[#0f62fe] px-8 text-base font-medium text-white transition-colors hover:bg-[#0050e6]"
               >
-                Mulai Uji Coba 1 Bulan Gratis
+                Mulai Uji Coba 35 Hari Gratis
                 <ArrowRight class="ml-2 size-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a

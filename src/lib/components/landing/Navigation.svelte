@@ -85,7 +85,7 @@
             isScrolled ? 'h-8 px-4 text-xs' : 'h-10 px-6 text-sm'
           }`}
         >
-          Coba Gratis 1 Bulan
+          Coba Gratis 35 Hari
         </a>
       </div>
 
@@ -163,7 +163,7 @@
           onclick={() => (isMobileMenuOpen = false)}
           class="flex h-12 flex-1 items-center justify-center rounded-full bg-[#0f62fe] text-sm font-medium text-white transition-colors hover:bg-[#0050e6]"
         >
-          Coba Gratis 1 Bulan
+          Coba Gratis 35 Hari
         </a>
       </div>
     </div>
