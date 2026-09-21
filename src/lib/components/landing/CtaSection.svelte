@@ -67,7 +67,7 @@
 
             <div class="flex flex-col items-start gap-4 sm:flex-row">
               <a
-                href="https://app.precis.com/register"
+                href="https://app.onde.my.id/register"
                 class="group inline-flex h-14 items-center justify-center rounded-full bg-[#0f62fe] px-8 text-base font-medium text-white transition-colors hover:bg-[#0050e6]"
               >
                 Mulai Uji Coba 35 Hari Gratis

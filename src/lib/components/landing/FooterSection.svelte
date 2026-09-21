@@ -11,12 +11,12 @@
       { name: 'Paket Harga', href: '#pricing' },
     ],
     Portal: [
-      { name: 'Portal Owner', href: 'https://app.precis.com/login' },
-      { name: 'Portal Store Manager', href: 'https://app.precis.com/login' },
-      { name: 'Kiosk Kasir Toko', href: 'https://pos.precis.com' },
+      { name: 'Portal Owner', href: 'https://app.onde.my.id/login' },
+      { name: 'Portal Store Manager', href: 'https://app.onde.my.id/login' },
+      { name: 'Kiosk Kasir Toko', href: 'https://pos.onde.my.id' },
       {
         name: 'Daftar Akun Baru',
-        href: 'https://app.precis.com/register',
+        href: 'https://app.onde.my.id/register',
         badge: '35 Hari Gratis',
       },
     ],

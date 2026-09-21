@@ -72,7 +72,7 @@
       <!-- Desktop CTA -->
       <div class="hidden items-center gap-4 md:flex">
         <a
-          href="https://app.precis.com/login"
+          href="https://app.onde.my.id/login"
           class={`text-[#525252] transition-all duration-500 hover:text-[#161616] ${
             isScrolled ? 'text-xs' : 'text-sm'
           }`}
@@ -80,7 +80,7 @@
           Masuk Portal
         </a>
         <a
-          href="https://app.precis.com/register"
+          href="https://app.onde.my.id/register"
           class={`inline-flex items-center justify-center rounded-full bg-[#0f62fe] font-medium text-white transition-all duration-500 hover:bg-[#0050e6] ${
             isScrolled ? 'h-8 px-4 text-xs' : 'h-10 px-6 text-sm'
           }`}
@@ -152,14 +152,14 @@
         }`}
       >
         <a
-          href="https://app.precis.com/login"
+          href="https://app.onde.my.id/login"
           onclick={() => (isMobileMenuOpen = false)}
           class="flex h-12 flex-1 items-center justify-center rounded-full border border-[#e0e0e0] text-sm font-medium text-[#161616] transition-colors hover:bg-[#f4f4f4]"
         >
           Masuk Portal
         </a>
         <a
-          href="https://app.precis.com/register"
+          href="https://app.onde.my.id/register"
           onclick={() => (isMobileMenuOpen = false)}
           class="flex h-12 flex-1 items-center justify-center rounded-full bg-[#0f62fe] text-sm font-medium text-white transition-colors hover:bg-[#0050e6]"
         >
