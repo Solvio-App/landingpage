@@ -36,10 +36,10 @@
     },
     {
       name: 'Scale Enterprise',
-      description: 'Untuk jaringan bisnis berkembang hingga 20 cabang',
+      description: 'Untuk jaringan bisnis berkembang hingga 10 cabang',
       price: { monthly: '799.000', annual: '665.000', annualBilled: '7.990.000' },
       features: [
-        'Hingga 20 Kuota Outlet / Cabang',
+        'Hingga 10 Kuota Outlet / Cabang',
         'Semua Fitur Growth Multi-Outlet',
         'Staf Karyawan & Kasir Tanpa Batas',
         'Laporan Finansial Konsolidasi',
