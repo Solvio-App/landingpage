@@ -102,7 +102,7 @@
         }`}
       >
         <a
-          href="https://app.onde.my.id/register"
+          href="https://app.solvio.id/register"
           class="group inline-flex h-14 items-center justify-center rounded-full bg-[#0f62fe] px-8 text-base font-medium text-white shadow-sm transition-colors hover:bg-[#0050e6]"
         >
           Mulai Uji Coba 35 Hari

@@ -11,12 +11,12 @@
       { name: 'Paket Harga', href: '#pricing' },
     ],
     Portal: [
-      { name: 'Portal Owner', href: 'https://app.onde.my.id/login' },
-      { name: 'Portal Store Manager', href: 'https://app.onde.my.id/login' },
-      { name: 'Kiosk Kasir Toko', href: 'https://pos.onde.my.id' },
+      { name: 'Portal Owner', href: 'https://app.solvio.id/login' },
+      { name: 'Portal Store Manager', href: 'https://app.solvio.id/login' },
+      { name: 'Kiosk Kasir Toko', href: 'https://pos.solvio.id' },
       {
         name: 'Daftar Akun Baru',
-        href: 'https://app.onde.my.id/register',
+        href: 'https://app.solvio.id/register',
         badge: '35 Hari Gratis',
       },
     ],
