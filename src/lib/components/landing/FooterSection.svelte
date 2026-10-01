@@ -21,7 +21,7 @@
       },
     ],
     Perusahaan: [
-      { name: 'Tentang Précis', href: '#' },
+      { name: 'Tentang Solvio', href: '#' },
       { name: 'Pusat Bantuan', href: '#' },
       { name: 'Panduan Outlet', href: '#how-it-works' },
       { name: 'WhatsApp Support', href: 'https://wa.me/6281234567890' },
@@ -57,10 +57,10 @@
           <a href="/" class="mb-6 inline-flex items-center gap-2.5">
             <img
               src="/logo.png"
-              alt="Précis Logo"
+              alt="Solvio Logo"
               class="size-9 rounded-xl object-contain"
             />
-            <span class="font-display text-2xl font-bold text-[#161616]">Précis</span>
+            <span class="font-display text-2xl font-bold text-[#161616]">Solvio</span>
           </a>
 
           <p class="mb-8 max-w-xs text-sm leading-relaxed text-[#525252]">

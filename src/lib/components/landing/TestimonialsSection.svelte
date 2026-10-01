@@ -12,7 +12,7 @@
     },
     {
       quote:
-        'Saat koneksi Wi-Fi toko putus di jam sibuk, kasir POS Précis tetap melayani transaksi dan cetak struk tanpa delay sedetik pun.',
+        'Saat koneksi Wi-Fi toko putus di jam sibuk, kasir POS Solvio tetap melayani transaksi dan cetak struk tanpa delay sedetik pun.',
       author: 'Hendra Wijaya',
       role: 'Store Manager',
       company: 'Modis Fashion Retail',

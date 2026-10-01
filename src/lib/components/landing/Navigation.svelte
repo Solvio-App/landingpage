@@ -42,7 +42,7 @@
       <a href="/" class="group flex items-center gap-2.5">
         <img
           src="/logo.png"
-          alt="Précis Logo"
+          alt="Solvio Logo"
           class="size-9 rounded-xl object-contain sm:size-10"
         />
         <span
@@ -50,7 +50,7 @@
             isScrolled ? 'text-xl' : 'text-2xl'
           }`}
         >
-          Précis
+          Solvio
         </span>
       </a>
 
@@ -116,7 +116,7 @@
       <div class="flex items-center justify-between border-b border-[#f0f0f0] pb-4">
         <a href="/" onclick={() => (isMobileMenuOpen = false)} class="flex items-baseline gap-2">
           <span class="font-display text-2xl font-bold tracking-tight text-[#161616]">
-            Précis
+            Solvio
           </span>
         </a>
         <button
