@@ -18,7 +18,7 @@
       number: 'II',
       title: 'Staf Selfie Presensi Masuk Shift',
       description:
-        'Karyawan membuka portal presensi di smartphone saat tiba di outlet. Sistem secara otomatis menyematkan koordinat toko dan jam WIB di atas foto.',
+        'Karyawan membuka menu presensi di ponsel saat tiba di outlet. Sistem secara otomatis menyematkan koordinat toko dan jam WIB pada foto.',
       lines: [
         'STAF: Rian Hidayat (Kasir)',
         'JAM MASUK: 07:18 WIB (Shift Pagi)',

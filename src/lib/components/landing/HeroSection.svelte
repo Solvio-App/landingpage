@@ -127,7 +127,7 @@
     <div class="marquee flex gap-16 whitespace-nowrap lg:gap-20">
       {#each Array(2) as _}
         <div class="flex items-center gap-16 lg:gap-20">
-          {#each [{ value: '0 Detik', label: 'Kasir macet saat offline', company: 'DATABASE LOKAL TABLET' }, { value: '100%', label: 'Kalkulasi gaji otomatis', company: 'POTONG KASBON & TELAT' }, { value: '60 Hari', label: 'Arsip foto selfie tersimpan', company: 'AUDIT VISUAL HARIAN' }, { value: '~3 ms', label: 'Kecepatan response sistem', company: 'PERFORMA TINGGI' }] as stat}
+          {#each [{ value: '0 Detik', label: 'Kasir macet saat offline', company: 'DATABASE LOKAL TABLET' }, { value: '100%', label: 'Kalkulasi gaji otomatis', company: 'POTONG KASBON & TELAT' }, { value: '60 Hari', label: 'Arsip foto selfie tersimpan', company: 'AUDIT VISUAL HARIAN' }, { value: '~3 ms', label: 'Kecepatan respon sistem', company: 'LATENSI RENDAH' }] as stat}
             <div class="flex items-baseline gap-3 sm:gap-4">
               <span
                 class="font-display text-3xl tracking-tight text-[#161616] sm:text-4xl lg:text-5xl"

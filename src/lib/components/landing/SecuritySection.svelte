@@ -7,12 +7,12 @@
       icon: Lock,
       title: 'Penguncian Tablet Kasir',
       description:
-        'Setiap perangkat tablet kasir diikat dengan token otorisasi unik per cabang toko.',
+        'Setiap tablet kasir terkunci ke satu cabang toko dengan token unik.',
     },
     {
       icon: Shield,
       title: 'Isolasi Data Multi-Tenant',
-      description: 'Data penjualan, laba, dan gaji cabang Anda terisolasi aman di level database.',
+      description: 'Data penjualan, laba, dan gaji tiap cabang Anda terpisah dan aman.',
     },
     {
       icon: Eye,
@@ -73,8 +73,7 @@
           prioritas mutlak.
         </h2>
         <p class="mb-12 text-xl leading-relaxed text-[#525252]">
-          Perlindungan data finansial dan integritas kehadiran dibangun di setiap lapisan sistem,
-          menjamin bisnis Anda beroperasi dengan tenang.
+          Data finansial dan kehadiran dilindungi di setiap lapisan sistem.
         </p>
 
         <!-- Badges -->

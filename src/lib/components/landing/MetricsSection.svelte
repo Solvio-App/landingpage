@@ -5,7 +5,7 @@
     { value: 1420850, suffix: '+', prefix: '', label: 'Transaksi kasir sukses terproses' },
     { value: 100, suffix: '%', prefix: '', label: 'Akurasi slip gaji & potongan kasbon' },
     { value: 0, suffix: ' Detik', prefix: '', label: 'Kasir macet saat internet mati' },
-    { value: 500, suffix: '+', prefix: '', label: 'Outlet ritel, resto & toko terintegrasi' },
+    { value: 500, suffix: '+', prefix: '', label: 'Outlet ritel, resto & kafe aktif' },
   ];
 
   let timeString = $state('');
@@ -52,7 +52,7 @@
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}
         >
-          Performa bisnis yang
+          Hasil operasional yang
           <br />
           dapat Anda ukur.
         </h2>

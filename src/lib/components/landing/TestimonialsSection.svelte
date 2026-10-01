@@ -28,7 +28,7 @@
     },
     {
       quote:
-        'Dashboard owner memberi saya visibilitas penuh terhadap performa penjualan seluruh cabang langsung dari smartphone kapan saja.',
+        'Saya bisa memantau penjualan seluruh cabang langsung dari ponsel kapan saja tanpa harus ke lokasi.',
       author: 'Budi Santoso',
       role: 'Founder',
       company: 'Artisan Bakery & Cafe',
