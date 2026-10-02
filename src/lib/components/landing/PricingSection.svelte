@@ -31,7 +31,7 @@
         'Cetak Struk Thermal Bluetooth',
         'Ekspor Slip Gaji Siap Transfer Bank',
       ],
-      cta: 'Paling Diminati - Coba Gratis 35 Hari',
+      cta: 'Coba Gratis 35 Hari',
       popular: true,
     },
     {

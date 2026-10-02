@@ -10,12 +10,12 @@
       { name: 'Cara Kerja', href: '#how-it-works' },
       { name: 'Paket Harga', href: '#pricing' },
     ],
-    Portal: [
-      { name: 'Portal Owner', href: 'https://app.solvio.id/login' },
-      { name: 'Portal Store Manager', href: 'https://app.solvio.id/login' },
-      { name: 'Kiosk Kasir Toko', href: 'https://pos.solvio.id' },
+    Akses: [
+      { name: 'Login Owner', href: 'https://app.solvio.id/login' },
+      { name: 'Login Store Manager', href: 'https://app.solvio.id/login' },
+      { name: 'Kasir POS Toko', href: 'https://pos.solvio.id' },
       {
-        name: 'Daftar Akun Baru',
+        name: 'Daftar',
         href: 'https://app.solvio.id/register',
         badge: '35 Hari Gratis',
       },

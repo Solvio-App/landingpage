@@ -77,7 +77,7 @@
             isScrolled ? 'text-xs' : 'text-sm'
           }`}
         >
-          Masuk Portal
+          Masuk
         </a>
         <a
           href="https://app.solvio.id/register"
@@ -156,7 +156,7 @@
           onclick={() => (isMobileMenuOpen = false)}
           class="flex h-12 flex-1 items-center justify-center rounded-full border border-[#e0e0e0] text-sm font-medium text-[#161616] transition-colors hover:bg-[#f4f4f4]"
         >
-          Masuk Portal
+          Masuk
         </a>
         <a
           href="https://app.solvio.id/register"
