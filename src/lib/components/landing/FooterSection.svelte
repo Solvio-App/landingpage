@@ -24,7 +24,7 @@
       { name: 'Tentang Solvio', href: '#' },
       { name: 'Pusat Bantuan', href: '#' },
       { name: 'Panduan Outlet', href: '#how-it-works' },
-      { name: 'WhatsApp Support', href: 'https://wa.me/6281234567890' },
+      { name: 'Email Support', href: 'mailto:support@solvio.id' },
     ],
     Legalitas: [
       { name: 'Kebijakan Privasi', href: '#' },
@@ -34,9 +34,9 @@
   };
 
   const socialLinks = [
-    { name: 'Instagram', href: '#' },
+    { name: 'Instagram', href: 'https://instagram.com/solvio.id' },
     { name: 'LinkedIn', href: '#' },
-    { name: 'WhatsApp', href: 'https://wa.me/6281234567890' },
+    { name: 'Email', href: 'mailto:support@solvio.id' },
   ];
 </script>
 
@@ -73,6 +73,8 @@
             {#each socialLinks as link}
               <a
                 href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 class="group flex items-center gap-1 text-sm text-[#525252] transition-colors hover:text-[#161616]"
               >
                 {link.name}
