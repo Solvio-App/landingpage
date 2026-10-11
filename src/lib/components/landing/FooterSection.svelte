@@ -21,6 +21,7 @@
       },
     ],
     Perusahaan: [
+      { name: 'Jadwalkan Demo', href: 'https://wa.me/6282314093294?text=Halo%20Solvio,%20saya%20ingin%20menjadwalkan%20demo%20sistem%20POS%20dan%20operasional%20untuk%20bisnis%20saya.', badge: 'WhatsApp' },
       { name: 'Tentang Solvio', href: '#' },
       { name: 'Pusat Bantuan', href: '#' },
       { name: 'Panduan Outlet', href: '#how-it-works' },
