@@ -70,7 +70,17 @@
       </div>
 
       <!-- Desktop CTA -->
-      <div class="hidden items-center gap-4 md:flex">
+      <div class="hidden items-center gap-3 md:flex">
+        <a
+          href="https://wa.me/6282314093294?text=Halo%20Solvio,%20saya%20ingin%20menjadwalkan%20demo%20sistem%20POS%20dan%20operasional%20untuk%20bisnis%20saya."
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`rounded-full border border-[#161616] font-medium text-[#161616] transition-all duration-500 hover:bg-[#161616] hover:text-white ${
+            isScrolled ? 'h-8 px-3.5 text-xs' : 'h-10 px-4 text-sm'
+          } inline-flex items-center justify-center`}
+        >
+          Jadwalkan Demo
+        </a>
         <a
           href="https://app.solvio.id/login"
           class={`text-[#525252] transition-all duration-500 hover:text-[#161616] ${
@@ -147,24 +157,35 @@
 
       <!-- Bottom Action Buttons -->
       <div
-        class={`flex gap-3 border-t border-[#e0e0e0] pt-6 transition-all duration-300 ${
+        class={`flex flex-col gap-3 border-t border-[#e0e0e0] pt-6 transition-all duration-300 ${
           isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
         }`}
       >
         <a
-          href="https://app.solvio.id/login"
+          href="https://wa.me/6282314093294?text=Halo%20Solvio,%20saya%20ingin%20menjadwalkan%20demo%20sistem%20POS%20dan%20operasional%20untuk%20bisnis%20saya."
+          target="_blank"
+          rel="noopener noreferrer"
           onclick={() => (isMobileMenuOpen = false)}
-          class="flex h-12 flex-1 items-center justify-center rounded-full border border-[#e0e0e0] text-sm font-medium text-[#161616] transition-colors hover:bg-[#f4f4f4]"
+          class="flex h-12 w-full items-center justify-center rounded-full border border-[#161616] text-sm font-semibold text-[#161616] transition-colors hover:bg-[#161616] hover:text-white"
         >
-          Masuk
+          Jadwalkan Demo
         </a>
-        <a
-          href="https://app.solvio.id/register"
-          onclick={() => (isMobileMenuOpen = false)}
-          class="flex h-12 flex-1 items-center justify-center rounded-full bg-[#0f62fe] text-sm font-medium text-white transition-colors hover:bg-[#0050e6]"
-        >
-          Coba Gratis 35 Hari
-        </a>
+        <div class="flex gap-3">
+          <a
+            href="https://app.solvio.id/login"
+            onclick={() => (isMobileMenuOpen = false)}
+            class="flex h-12 flex-1 items-center justify-center rounded-full border border-[#e0e0e0] text-sm font-medium text-[#161616] transition-colors hover:bg-[#f4f4f4]"
+          >
+            Masuk
+          </a>
+          <a
+            href="https://app.solvio.id/register"
+            onclick={() => (isMobileMenuOpen = false)}
+            class="flex h-12 flex-1 items-center justify-center rounded-full bg-[#0f62fe] text-sm font-medium text-white transition-colors hover:bg-[#0050e6]"
+          >
+            Coba Gratis 35 Hari
+          </a>
+        </div>
       </div>
     </div>
   </div>

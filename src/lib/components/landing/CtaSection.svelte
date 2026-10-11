@@ -74,10 +74,12 @@
                 <ArrowRight class="ml-2 size-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="#features"
-                class="inline-flex h-14 items-center justify-center rounded-full border border-[#161616] px-8 text-base font-medium text-[#161616] transition-colors hover:bg-[#f4f4f4]"
+                href="https://wa.me/6282314093294?text=Halo%20Solvio,%20saya%20ingin%20menjadwalkan%20demo%20sistem%20POS%20dan%20operasional%20untuk%20bisnis%20saya."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex h-14 items-center justify-center rounded-full border border-[#161616] px-8 text-base font-medium text-[#161616] transition-colors hover:bg-[#161616] hover:text-white"
               >
-                Pelajari Semua Fitur
+                Jadwalkan Demo
               </a>
             </div>
 
@@ -88,10 +90,10 @@
 
           <!-- Right animation -->
           <div
-            class="relative -mr-12 hidden size-[460px] items-center justify-center lg:flex"
+            class="relative -mr-12 hidden size-115 items-center justify-center lg:flex"
           >
             <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <div class="flex size-[740px] shrink-0 items-center justify-center">
+              <div class="flex size-185 shrink-0 items-center justify-center">
                 <AnimatedTetrahedron />
               </div>
             </div>
