@@ -1,9 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { Menu, X } from 'lucide-svelte';
+  import { getLoginUrl, getRegisterUrl } from '../../utils';
 
   let isScrolled = $state(false);
   let isMobileMenuOpen = $state(false);
+
+  const loginUrl = getLoginUrl();
+  const registerUrl = getRegisterUrl();
 
   const navLinks = [
     { name: 'Fitur Unggulan', href: '#features' },
@@ -82,7 +86,7 @@
           Jadwalkan Demo
         </a>
         <a
-          href="https://app.solvio.id/login"
+          href={loginUrl}
           class={`text-[#525252] transition-all duration-500 hover:text-[#161616] ${
             isScrolled ? 'text-xs' : 'text-sm'
           }`}
@@ -90,7 +94,7 @@
           Masuk
         </a>
         <a
-          href="https://app.solvio.id/register"
+          href={registerUrl}
           class={`inline-flex items-center justify-center rounded-full bg-[#0f62fe] font-medium text-white transition-all duration-500 hover:bg-[#0050e6] ${
             isScrolled ? 'h-8 px-4 text-xs' : 'h-10 px-6 text-sm'
           }`}
@@ -172,14 +176,14 @@
         </a>
         <div class="flex gap-3">
           <a
-            href="https://app.solvio.id/login"
+            href={loginUrl}
             onclick={() => (isMobileMenuOpen = false)}
             class="flex h-12 flex-1 items-center justify-center rounded-full border border-[#e0e0e0] text-sm font-medium text-[#161616] transition-colors hover:bg-[#f4f4f4]"
           >
             Masuk
           </a>
           <a
-            href="https://app.solvio.id/register"
+            href={registerUrl}
             onclick={() => (isMobileMenuOpen = false)}
             class="flex h-12 flex-1 items-center justify-center rounded-full bg-[#0f62fe] text-sm font-medium text-white transition-colors hover:bg-[#0050e6]"
           >

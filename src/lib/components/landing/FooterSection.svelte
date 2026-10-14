@@ -1,6 +1,11 @@
 <script lang="ts">
   import { ArrowUpRight } from 'lucide-svelte';
   import AnimatedWave from './AnimatedWave.svelte';
+  import { getLoginUrl, getRegisterUrl, getPosBaseUrl } from '../../utils';
+
+  const loginUrl = getLoginUrl();
+  const registerUrl = getRegisterUrl();
+  const posUrl = getPosBaseUrl();
 
   const footerLinks = {
     Produk: [
@@ -11,12 +16,12 @@
       { name: 'Paket Harga', href: '#pricing' },
     ],
     Akses: [
-      { name: 'Login Owner', href: 'https://app.solvio.id/login' },
-      { name: 'Login Store Manager', href: 'https://app.solvio.id/login' },
-      { name: 'Kasir POS Toko', href: 'https://pos.solvio.id' },
+      { name: 'Login Owner', href: loginUrl },
+      { name: 'Login Store Manager', href: loginUrl },
+      { name: 'Kasir POS Toko', href: posUrl },
       {
         name: 'Daftar',
-        href: 'https://app.solvio.id/register',
+        href: registerUrl,
         badge: '35 Hari Gratis',
       },
     ],

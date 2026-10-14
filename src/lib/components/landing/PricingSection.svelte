@@ -1,6 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { ArrowRight, Check, MessageSquare } from 'lucide-svelte';
+  import { getRegisterUrl } from '../../utils';
+
+  const registerUrl = getRegisterUrl();
 
   interface BackendPlan {
     id: string;
@@ -283,7 +286,7 @@
 
           <!-- CTA -->
           <a
-            href="https://app.solvio.id/register"
+            href={registerUrl}
             class={`flex w-full items-center justify-center gap-2 rounded-none py-4 text-sm font-medium transition-all ${
               plan.popular
                 ? 'bg-[#0f62fe] text-white hover:bg-[#0050e6]'

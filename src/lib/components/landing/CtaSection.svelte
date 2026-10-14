@@ -2,6 +2,9 @@
   import { onMount } from 'svelte';
   import { ArrowRight } from 'lucide-svelte';
   import AnimatedTetrahedron from './AnimatedTetrahedron.svelte';
+  import { getRegisterUrl } from '../../utils';
+
+  const registerUrl = getRegisterUrl();
 
   let isVisible = $state(false);
   let sectionEl: HTMLElement;
@@ -67,7 +70,7 @@
 
             <div class="flex flex-col items-start gap-4 sm:flex-row">
               <a
-                href="https://app.solvio.id/register"
+                href={registerUrl}
                 class="group inline-flex h-14 items-center justify-center rounded-full bg-[#0f62fe] px-8 text-base font-medium text-white transition-colors hover:bg-[#0050e6]"
               >
                 Mulai Uji Coba 35 Hari Gratis
