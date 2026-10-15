@@ -129,7 +129,7 @@
         </div>
 
         <!-- Navigation Dots -->
-        <div class="mt-8 flex gap-2">
+        <div class="mt-8 flex items-center gap-1">
           {#each testimonials as _, idx}
             <button
               type="button"
@@ -140,11 +140,15 @@
                   isAnimating = false;
                 }, 300);
               }}
-              class={`h-2 transition-all duration-300 ${
-                idx === activeIndex ? 'w-8 bg-[#0f62fe]' : 'w-2 bg-[#e0e0e0] hover:bg-[#8c8c8c]'
-              }`}
+              class="flex min-h-7 min-w-7 cursor-pointer items-center justify-center p-1"
               aria-label={`Testimoni ${idx + 1}`}
-            ></button>
+            >
+              <span
+                class={`block h-2 rounded-full transition-all duration-300 ${
+                  idx === activeIndex ? 'w-8 bg-[#0f62fe]' : 'w-2 bg-[#e0e0e0] hover:bg-[#6f6f6f]'
+                }`}
+              ></span>
+            </button>
           {/each}
         </div>
       </div>
@@ -165,7 +169,7 @@
         <div class="flex shrink-0 items-center gap-16">
           {#each brandPartners as company}
             <span
-              class="font-display text-xl whitespace-nowrap text-[#8c8c8c] transition-colors duration-300 hover:text-[#161616] md:text-2xl"
+              class="font-display text-xl whitespace-nowrap text-[#6f6f6f] transition-colors duration-300 hover:text-[#161616] md:text-2xl"
             >
               {company}
             </span>

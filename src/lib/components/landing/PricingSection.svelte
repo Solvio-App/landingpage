@@ -250,7 +250,7 @@
 
             <!-- Plan Header -->
             <div class="mb-8">
-              <span class="font-mono text-xs text-[#8c8c8c]">
+              <span class="font-mono text-xs text-[#6f6f6f]">
                 {String(idx + 1).padStart(2, '0')}
               </span>
               <h3 class="mt-2 font-display text-3xl text-[#161616]">{plan.name}</h3>
@@ -267,7 +267,7 @@
                 <span class="font-mono text-sm text-[#525252]">/bln</span>
               </div>
               {#if isAnnual}
-                <span class="mt-1 block font-mono text-xs text-[#8c8c8c]">
+                <span class="mt-1 block font-mono text-xs text-[#6f6f6f]">
                   Ditagih Rp {plan.price.annualBilled}/tahun
                 </span>
               {/if}

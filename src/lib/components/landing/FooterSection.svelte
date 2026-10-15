@@ -52,7 +52,7 @@
     <div class="relative py-16 lg:py-24">
       <!-- Animated wave background filling the entire upper section above the bottom bar -->
       <div
-        class="pointer-events-none absolute -inset-x-6 inset-y-0 overflow-hidden opacity-25 lg:-inset-x-12"
+        class="pointer-events-none absolute -inset-x-6 inset-y-0 transform-gpu overflow-hidden opacity-25 lg:-inset-x-12"
       >
         <AnimatedWave />
       </div>
@@ -62,8 +62,10 @@
         <div class="col-span-2">
           <a href="/" class="mb-6 inline-flex items-center gap-2.5">
             <img
-              src="/logo.png"
+              src="/logo.webp"
               alt="Solvio Logo"
+              width="36"
+              height="36"
               class="size-9 rounded-xl object-contain"
             />
             <span class="font-display text-2xl font-bold text-[#161616]">Solvio</span>
@@ -124,9 +126,9 @@
     <div
       class="relative z-10 flex items-center justify-center border-t border-[#e0e0e0] bg-white py-8 text-center"
     >
-      <p class="text-sm text-[#8c8c8c]">
+      <p class="text-sm text-[#525252]">
         &copy; 2026 <span
-          class="font-medium text-[#525252] underline decoration-[#8c8c8c] decoration-1 underline-offset-4"
+          class="font-medium text-[#525252] underline decoration-[#525252] decoration-1 underline-offset-4"
           >Munk Studio</span
         >. Hak cipta dilindungi undang-undang.
       </p>

@@ -86,7 +86,7 @@
               </a>
             </div>
 
-            <p class="mt-8 font-mono text-sm text-[#8c8c8c]">
+            <p class="mt-8 font-mono text-sm text-[#525252]">
               Tanpa kartu kredit • Setup outlet dalam 5 menit
             </p>
           </div>
@@ -96,7 +96,7 @@
             class="relative -mr-12 hidden size-115 items-center justify-center lg:flex"
           >
             <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <div class="flex size-185 shrink-0 items-center justify-center">
+              <div class="flex size-185 shrink-0 transform-gpu items-center justify-center">
                 <AnimatedTetrahedron />
               </div>
             </div>

@@ -17,16 +17,26 @@
   ];
 
   onMount(() => {
+    let ticking = false;
     const handleScroll = () => {
-      isScrolled = window.scrollY > 20;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const next = window.scrollY > 20;
+          if (isScrolled !== next) {
+            isScrolled = next;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   });
 </script>
 
 <header
-  class={`fixed z-50 transition-all duration-500 ${
+  class={`fixed z-50 transform-gpu transition-all duration-300 ${
     isScrolled ? 'inset-x-4 top-4' : 'inset-x-0 top-0'
   }`}
 >
@@ -45,8 +55,10 @@
       <!-- Logo -->
       <a href="/" class="group flex items-center gap-2.5">
         <img
-          src="/logo.png"
+          src="/logo.webp"
           alt="Solvio Logo"
+          width="40"
+          height="40"
           class="size-9 rounded-xl object-contain sm:size-10"
         />
         <span
