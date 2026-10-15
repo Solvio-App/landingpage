@@ -10,24 +10,34 @@
 
     const chars = '░▒▓█▀▄▌▐│─┤├┴┬╭╮╰╯';
     let angle = 0;
-    let animId: number;
+    let animId: number = 0;
+    let isVisible = true;
+    let isStarted = false;
+    let lastFrameTime = 0;
+    const targetIntervalMs = 1000 / 30;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const handleResize = () => {
-      if (!canvasRef) return;
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvasRef.getBoundingClientRect();
-      canvasRef.width = Math.floor(rect.width * dpr);
-      canvasRef.height = Math.floor(rect.height * dpr);
-    };
+    // Precompute unit sphere geometry once on mount
+    const baseSpherePoints: Array<{ x: number; y: number; z: number }> = [];
+    const sphereStep = 0.22;
+    for (let theta = 0; theta < Math.PI * 2; theta += sphereStep) {
+      for (let phi = 0; phi < Math.PI; phi += sphereStep) {
+        baseSpherePoints.push({
+          x: Math.sin(phi) * Math.cos(theta),
+          y: Math.sin(phi) * Math.sin(theta),
+          z: Math.cos(phi),
+        });
+      }
+    }
+    const totalPoints = baseSpherePoints.length;
+    const renderPoints = baseSpherePoints.map(() => ({ x: 0, y: 0, z: 0, char: '' }));
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    const render = () => {
-      if (!canvasRef) return;
-      const dpr = window.devicePixelRatio || 1;
+    const drawFrame = (currentAngle: number) => {
+      if (!canvasRef || !ctx) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const width = canvasRef.width / dpr;
       const height = canvasRef.height / dpr;
+      if (width === 0 || height === 0) return;
 
       ctx.save();
       ctx.scale(dpr, dpr);
@@ -41,53 +51,131 @@
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
-      const points: Array<{ x: number; y: number; z: number; char: string }> = [];
+      const angleZ = currentAngle * 0.5;
+      const cosZ = Math.cos(angleZ);
+      const sinZ = Math.sin(angleZ);
 
-      for (let theta = 0; theta < Math.PI * 2; theta += 0.15) {
-        for (let phi = 0; phi < Math.PI; phi += 0.15) {
-          const x = Math.sin(phi) * Math.cos(theta + angle * 0.5);
-          const y = Math.sin(phi) * Math.sin(theta + angle * 0.5);
-          const z = Math.cos(phi);
+      const rotX = currentAngle * 0.3;
+      const cosX = Math.cos(rotX);
+      const sinX = Math.sin(rotX);
 
-          const rotX = angle * 0.3;
-          const y1 = y * Math.cos(rotX) - z * Math.sin(rotX);
-          const z1 = y * Math.sin(rotX) + z * Math.cos(rotX);
+      const rotY = currentAngle * 0.2;
+      const cosY = Math.cos(rotY);
+      const sinY = Math.sin(rotY);
 
-          const rotY = angle * 0.2;
-          const x2 = x * Math.cos(rotY) - z1 * Math.sin(rotY);
-          const z2 = x * Math.sin(rotY) + z1 * Math.cos(rotY);
+      for (let i = 0; i < totalPoints; i++) {
+        const bp = baseSpherePoints[i];
 
-          const depth = (z2 + 1) / 2;
-          const charIndex = Math.floor(depth * (chars.length - 1));
+        // Rotate around Z axis (azimuth)
+        const rx = bp.x * cosZ - bp.y * sinZ;
+        const ry = bp.x * sinZ + bp.y * cosZ;
+        const rz = bp.z;
 
-          points.push({
-            x: centerX + x2 * radius,
-            y: centerY + y1 * radius,
-            z: z2,
-            char: chars[charIndex],
-          });
-        }
+        // Rotate around X axis
+        const y1 = ry * cosX - rz * sinX;
+        const z1 = ry * sinX + rz * cosX;
+
+        // Rotate around Y axis
+        const x2 = rx * cosY - z1 * sinY;
+        const z2 = rx * sinY + z1 * cosY;
+
+        const depth = (z2 + 1) / 2;
+        const charIndex = Math.floor(depth * (chars.length - 1));
+
+        const p = renderPoints[i];
+        p.x = centerX + x2 * radius;
+        p.y = centerY + y1 * radius;
+        p.z = z2;
+        p.char = chars[Math.min(charIndex, chars.length - 1)];
       }
 
-      points.sort((a, b) => a.z - b.z);
+      renderPoints.sort((a, b) => a.z - b.z);
 
-      points.forEach((p) => {
+      for (let i = 0; i < totalPoints; i++) {
+        const p = renderPoints[i];
         const alpha = 0.4 + (p.z + 1) * 0.55;
         ctx.fillStyle = `rgba(15, 98, 254, ${Math.min(1, alpha)})`;
         ctx.fillText(p.char, p.x, p.y);
-      });
+      }
 
       ctx.restore();
+    };
 
-      angle += 0.02;
+    const render = (now: number) => {
+      if (!isVisible || !isStarted) {
+        animId = 0;
+        return;
+      }
+
+      if (now - lastFrameTime >= targetIntervalMs) {
+        drawFrame(angle);
+        angle += 0.02;
+        lastFrameTime = now;
+      }
+
       animId = requestAnimationFrame(render);
     };
 
-    render();
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const { width, height } = entry.contentRect;
+      if (width === 0 || height === 0) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvasRef.width = Math.floor(width * dpr);
+      canvasRef.height = Math.floor(height * dpr);
+      drawFrame(angle);
+    });
+
+    resizeObserver.observe(canvasRef);
+
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isVisible = entry ? entry.isIntersecting : true;
+
+        if (isVisible && isStarted && !prefersReducedMotion && animId === 0) {
+          animId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    intersectionObserver.observe(canvasRef);
+
+    let startTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const startAnimation = () => {
+      if (isStarted) return;
+      isStarted = true;
+      if (isVisible && !prefersReducedMotion && animId === 0) {
+        animId = requestAnimationFrame(render);
+      }
+      cleanupListeners();
+    };
+
+    const cleanupListeners = () => {
+      window.removeEventListener('scroll', startAnimation);
+      window.removeEventListener('pointermove', startAnimation);
+      window.removeEventListener('touchstart', startAnimation);
+    };
+
+    window.addEventListener('scroll', startAnimation, { passive: true, once: true });
+    window.addEventListener('pointermove', startAnimation, { passive: true, once: true });
+    window.addEventListener('touchstart', startAnimation, { passive: true, once: true });
+
+    if (!prefersReducedMotion) {
+      startTimer = setTimeout(startAnimation, 6000);
+    }
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animId);
+      cleanupListeners();
+      if (startTimer) clearTimeout(startTimer);
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      if (animId) {
+        cancelAnimationFrame(animId);
+      }
     };
   });
 </script>

@@ -10,18 +10,11 @@
 
     const chars = '░▒▓█▀▄▌▐│─┤├┴┬╭╮╰╯';
     let angle = 0;
-    let animId: number;
-
-    const handleResize = () => {
-      if (!canvasRef) return;
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvasRef.getBoundingClientRect();
-      canvasRef.width = Math.floor(rect.width * dpr);
-      canvasRef.height = Math.floor(rect.height * dpr);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
+    let animId: number = 0;
+    let isVisible = false;
+    let lastFrameTime = 0;
+    const targetIntervalMs = 1000 / 30;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const vertices = [
       { x: 0, y: 1, z: 0 },
@@ -64,11 +57,12 @@
       z: p.z,
     });
 
-    const render = () => {
-      if (!canvasRef) return;
-      const dpr = window.devicePixelRatio || 1;
+    const drawFrame = (currentAngle: number) => {
+      if (!canvasRef || !ctx) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const width = canvasRef.width / dpr;
       const height = canvasRef.height / dpr;
+      if (width === 0 || height === 0) return;
 
       ctx.save();
       ctx.scale(dpr, dpr);
@@ -93,9 +87,9 @@
             y: v1.y + (v2.y - v1.y) * t,
             z: v1.z + (v2.z - v1.z) * t,
           };
-          p = rotateY(p, angle * 0.4);
-          p = rotateX(p, angle * 0.3);
-          p = rotateZ(p, angle * 0.2);
+          p = rotateY(p, currentAngle * 0.4);
+          p = rotateX(p, currentAngle * 0.3);
+          p = rotateZ(p, currentAngle * 0.2);
 
           const depth = (p.z + 1.5) / 3;
           const charIndex = Math.floor(depth * (chars.length - 1));
@@ -122,9 +116,9 @@
               y: v1.y * u + v2.y * v + v3.y * w,
               z: v1.z * u + v2.z * v + v3.z * w,
             };
-            p = rotateY(p, angle * 0.4);
-            p = rotateX(p, angle * 0.3);
-            p = rotateZ(p, angle * 0.2);
+            p = rotateY(p, currentAngle * 0.4);
+            p = rotateX(p, currentAngle * 0.3);
+            p = rotateZ(p, currentAngle * 0.2);
 
             const depth = (p.z + 1.5) / 3;
             const charIndex = Math.floor(depth * (chars.length - 1));
@@ -148,16 +142,57 @@
       });
 
       ctx.restore();
+    };
 
-      angle += 0.015;
+    const render = (now: number) => {
+      if (!isVisible) {
+        animId = 0;
+        return;
+      }
+
+      if (now - lastFrameTime >= targetIntervalMs) {
+        drawFrame(angle);
+        angle += 0.015;
+        lastFrameTime = now;
+      }
+
       animId = requestAnimationFrame(render);
     };
 
-    render();
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const { width, height } = entry.contentRect;
+      if (width === 0 || height === 0) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvasRef.width = Math.floor(width * dpr);
+      canvasRef.height = Math.floor(height * dpr);
+      drawFrame(angle);
+    });
+
+    resizeObserver.observe(canvasRef);
+
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isVisible = entry ? entry.isIntersecting : false;
+
+        if (isVisible && !prefersReducedMotion && animId === 0) {
+          animId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    intersectionObserver.observe(canvasRef);
+    drawFrame(0);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animId);
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      if (animId) {
+        cancelAnimationFrame(animId);
+      }
     };
   });
 </script>
