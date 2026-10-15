@@ -52,7 +52,7 @@
     <div class="relative py-16 lg:py-24">
       <!-- Animated wave background filling the entire upper section above the bottom bar -->
       <div
-        class="pointer-events-none absolute -inset-x-6 inset-y-0 overflow-hidden opacity-25 lg:-inset-x-12"
+        class="pointer-events-none absolute -inset-x-6 inset-y-0 transform-gpu overflow-hidden opacity-25 lg:-inset-x-12"
       >
         <AnimatedWave />
       </div>

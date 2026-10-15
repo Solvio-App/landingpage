@@ -17,16 +17,26 @@
   ];
 
   onMount(() => {
+    let ticking = false;
     const handleScroll = () => {
-      isScrolled = window.scrollY > 20;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const next = window.scrollY > 20;
+          if (isScrolled !== next) {
+            isScrolled = next;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   });
 </script>
 
 <header
-  class={`fixed z-50 transition-all duration-500 ${
+  class={`fixed z-50 transform-gpu transition-all duration-300 ${
     isScrolled ? 'inset-x-4 top-4' : 'inset-x-0 top-0'
   }`}
 >

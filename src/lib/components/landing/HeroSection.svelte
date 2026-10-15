@@ -21,7 +21,7 @@
 <section class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-white">
   <!-- Animated sphere background - Brightened & Positioned -->
   <div
-    class="pointer-events-none absolute top-1/2 -right-8 size-170 -translate-y-1/2 opacity-60 sm:-right-10 sm:size-195 lg:right-0 lg:size-237.5"
+    class="pointer-events-none absolute top-1/2 -right-8 size-170 -translate-y-1/2 transform-gpu opacity-60 sm:-right-10 sm:size-195 lg:right-0 lg:size-237.5"
   >
     <AnimatedSphere />
   </div>

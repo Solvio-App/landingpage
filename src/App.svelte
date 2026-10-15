@@ -18,28 +18,13 @@
   <HeroSection />
   <FeaturesSection />
   <HowItWorksSection />
-  <div class="content-visibility-auto">
-    <InfrastructureSection />
-  </div>
-  <div class="content-visibility-auto">
-    <MetricsSection />
-  </div>
-  <div class="content-visibility-auto">
-    <IntegrationsSection />
-  </div>
-  <div class="content-visibility-auto">
-    <SecuritySection />
-  </div>
-  <div class="content-visibility-auto">
-    <TestimonialsSection />
-  </div>
-  <div class="content-visibility-auto">
-    <PricingSection />
-  </div>
-  <div class="content-visibility-auto">
-    <CtaSection />
-  </div>
-  <div class="content-visibility-auto">
-    <FooterSection />
-  </div>
+  <InfrastructureSection />
+  <MetricsSection />
+  <IntegrationsSection />
+  <SecuritySection />
+  <TestimonialsSection />
+  <PricingSection />
+  <CtaSection />
+  <FooterSection />
 </main>
+
