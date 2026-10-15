@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "analyze": "ANALYZE=1 vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
+    "@solvio/shared-utils": "workspace:*",
     "clsx": "^2.1.1",
     "dexie": "^4.0.11",
     "lucide-svelte": "^0.475.0",
