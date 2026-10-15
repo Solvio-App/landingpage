@@ -6,7 +6,7 @@
 
   const registerUrl = getRegisterUrl();
   const words = ['presensi', 'kasir POS', 'payroll', 'outlet'];
-  let isVisible = $state(false);
+  let isVisible = $state(true);
   let wordIndex = $state(0);
 
   onMount(() => {

@@ -149,7 +149,7 @@
               <div class="size-2.5 rounded-full bg-white/20 sm:size-3"></div>
               <div class="size-2.5 rounded-full bg-white/20 sm:size-3"></div>
             </div>
-            <span class="font-mono text-[11px] text-white/40 sm:text-xs"
+            <span class="font-mono text-[11px] text-white/70 sm:text-xs"
               >monitor-operasional.live</span
             >
           </div>
@@ -193,7 +193,7 @@
             class="flex items-center gap-2 border-t border-white/10 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4"
           >
             <span class="size-2 shrink-0 animate-pulse rounded-full bg-[#24a148]"></span>
-            <span class="font-mono text-[11px] text-white/40 sm:text-xs"
+            <span class="font-mono text-[11px] text-white/70 sm:text-xs"
               >Status: Sistem Berjalan Normal</span
             >
           </div>

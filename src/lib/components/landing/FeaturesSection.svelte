@@ -84,7 +84,7 @@
           >
             <!-- Number -->
             <div class="shrink-0">
-              <span class="font-mono text-sm text-[#8c8c8c]">{feature.number}</span>
+              <span class="font-mono text-sm text-[#6f6f6f]">{feature.number}</span>
             </div>
 
             <!-- Content -->
