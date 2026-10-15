@@ -10,24 +10,18 @@
 
     const chars = '·∘○◯◌●◉';
     let time = 0;
-    let animId: number;
+    let animId: number = 0;
+    let isVisible = false;
+    let lastFrameTime = 0;
+    const targetIntervalMs = 1000 / 30;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const handleResize = () => {
-      if (!canvasRef) return;
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvasRef.getBoundingClientRect();
-      canvasRef.width = Math.floor(rect.width * dpr);
-      canvasRef.height = Math.floor(rect.height * dpr);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    const render = () => {
-      if (!canvasRef) return;
-      const dpr = window.devicePixelRatio || 1;
+    const drawFrame = (currentTime: number) => {
+      if (!canvasRef || !ctx) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const width = canvasRef.width / dpr;
       const height = canvasRef.height / dpr;
+      if (width === 0 || height === 0) return;
 
       ctx.save();
       ctx.scale(dpr, dpr);
@@ -45,9 +39,9 @@
           const posX = (x + 0.5) * (width / cols);
           const posY = (y + 0.5) * (height / rows);
 
-          const wave1 = Math.sin(x * 0.2 + time * 2) * Math.cos(y * 0.15 + time);
-          const wave2 = Math.sin((x + y) * 0.1 + time * 1.5);
-          const wave3 = Math.cos(x * 0.1 - y * 0.1 + time * 0.8);
+          const wave1 = Math.sin(x * 0.2 + currentTime * 2) * Math.cos(y * 0.15 + currentTime);
+          const wave2 = Math.sin((x + y) * 0.1 + currentTime * 1.5);
+          const wave3 = Math.cos(x * 0.1 - y * 0.1 + currentTime * 0.8);
           const combined = (wave1 + wave2 + wave3) / 3;
 
           const normalized = (combined + 1) / 2;
@@ -60,16 +54,57 @@
       }
 
       ctx.restore();
+    };
 
-      time += 0.03;
+    const render = (now: number) => {
+      if (!isVisible) {
+        animId = 0;
+        return;
+      }
+
+      if (now - lastFrameTime >= targetIntervalMs) {
+        drawFrame(time);
+        time += 0.03;
+        lastFrameTime = now;
+      }
+
       animId = requestAnimationFrame(render);
     };
 
-    render();
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const { width, height } = entry.contentRect;
+      if (width === 0 || height === 0) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvasRef.width = Math.floor(width * dpr);
+      canvasRef.height = Math.floor(height * dpr);
+      drawFrame(time);
+    });
+
+    resizeObserver.observe(canvasRef);
+
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isVisible = entry ? entry.isIntersecting : false;
+
+        if (isVisible && !prefersReducedMotion && animId === 0) {
+          animId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    intersectionObserver.observe(canvasRef);
+    drawFrame(0);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animId);
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+      if (animId) {
+        cancelAnimationFrame(animId);
+      }
     };
   });
 </script>

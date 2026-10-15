@@ -86,7 +86,7 @@
               </a>
             </div>
 
-            <p class="mt-8 font-mono text-sm text-[#8c8c8c]">
+            <p class="mt-8 font-mono text-sm text-[#525252]">
               Tanpa kartu kredit • Setup outlet dalam 5 menit
             </p>
           </div>

@@ -45,8 +45,10 @@
       <!-- Logo -->
       <a href="/" class="group flex items-center gap-2.5">
         <img
-          src="/logo.png"
+          src="/logo.webp"
           alt="Solvio Logo"
+          width="40"
+          height="40"
           class="size-9 rounded-xl object-contain sm:size-10"
         />
         <span

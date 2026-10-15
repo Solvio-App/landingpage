@@ -1,5 +1,29 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/InstrumentSans-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/JetBrainsMono-Variable.woff2') format('woff2');
+}
+
 :root {
   --font-instrument: 'Instrument Sans', system-ui, sans-serif;
   --font-instrument-serif: 'Instrument Serif', Georgia, serif;
@@ -196,5 +220,10 @@
     opacity: 0.03;
     pointer-events: none;
     z-index: 1;
+  }
+
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
   }
 }
