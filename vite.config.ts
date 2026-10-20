@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
-import { createBundleAnalyzerPlugins } from '@solvio/shared-utils/vite-plugins';
+import { createBundleAnalyzerPlugins } from './plugins/vite-plugins';
 
 export default defineConfig({
   plugins: [
